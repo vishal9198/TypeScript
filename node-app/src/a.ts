@@ -1,21 +1,10 @@
-interface Person {
+interface manager {
   name: string;
-  age: number;
-  greet(phrase: string): void;
 }
 
-class Employee implements Person {
-  name: string;
-  age: number;
-
-  constructor(n: string, a: number) {
-    this.name = n;
-    this.age = a;
-  }
-  greet(phrase: string): void {
-    console.log(`${phrase} ${this.name}`);
-  }
+interface User {
+  age: string;
 }
-
-const emp = new Employee("vishal", 22);
-console.log(emp.greet("Hello"));
+interface bigperson extends manager, User {
+  mob: number;
+}
