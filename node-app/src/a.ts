@@ -1,12 +1,21 @@
-type arrArg = number[];
-
-function maxValue(arr: arrArg) {
-  let mx = 0;
-  for (let i = 0; i <= arr.length; i++) {
-    if (arr[i] > mx) mx = arr[i];
-  }
-  return mx;
+interface Person {
+  name: string;
+  age: number;
+  greet(phrase: string): void;
 }
 
-let i = maxValue([1, 2, 3]);
-console.log(i);
+class Employee implements Person {
+  name: string;
+  age: number;
+
+  constructor(n: string, a: number) {
+    this.name = n;
+    this.age = a;
+  }
+  greet(phrase: string): void {
+    console.log(`${phrase} ${this.name}`);
+  }
+}
+
+const emp = new Employee("vishal", 22);
+console.log(emp.greet("Hello"));
