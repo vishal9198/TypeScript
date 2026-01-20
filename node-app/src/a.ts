@@ -1,16 +1,9 @@
-const express = require("express");
-const app = express();
-
-enum ResponseStatus {
-  success = 200,
-  notfound = 404,
-  Error = 500,
+function identity<T>(arg: T) {
+  return arg;
 }
 
-app.get("/", (req, res) => {
-  if (!req.body.userId) {
-    res.status(ResponseStatus.notfound).json({
-      success: "failure",
-    });
-  }
-});
+let output1 = identity<string>("hello");
+let output2 = identity<number>(100);
+
+console.log(output1);
+console.log(output2);
