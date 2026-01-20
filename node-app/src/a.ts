@@ -1,19 +1,16 @@
-// type keyword = "up" | "down" | "left" | "right"; //hard coded  const value
-//enum is used to combined const  values
+const express = require("express");
+const app = express();
 
-enum Direction {
-  Left = "left",
-  Right = "right",
-  Up = "up",
-  Down = "down",
+enum ResponseStatus {
+  success = 200,
+  notfound = 404,
+  Error = 500,
 }
 
-function dosomthing(keyPressed: Direction) {
-  if (keyPressed == Direction.Up) console.log("up");
-}
-
-dosomthing(Direction.Up);
-dosomthing(Direction.Down);
-console.log(Direction.Up);
-console.log(Direction.Down);
-// dosomthing("leftword");
+app.get("/", (req, res) => {
+  if (!req.body.userId) {
+    res.status(ResponseStatus.notfound).json({
+      success: "failure",
+    });
+  }
+});
