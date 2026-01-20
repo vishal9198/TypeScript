@@ -1,9 +1,8 @@
-function identity<T>(arg: T) {
-  return arg;
+function getFirstEl<T>(arr: T[]) {
+  return arr[0];
 }
 
-let output1 = identity<string>("hello");
-let output2 = identity<number>(100);
-
-console.log(output1);
-console.log(output2);
+let val = getFirstEl<string>(["hello", "ram", "mhan"]);
+let val2 = getFirstEl<number>([1, 2, 3]);
+console.log(val);
+console.log(val2);
